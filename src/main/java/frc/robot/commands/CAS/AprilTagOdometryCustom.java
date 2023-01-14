@@ -32,8 +32,8 @@ public class AprilTagOdometryCustom extends CommandBase {
     public void execute() {
         if (m_camera.hasTarget()) {
             Pose3d targetPose = m_aprilTags.getPose(m_camera.getID());
-            double cameraPitch = 0.0; //temporary;
-            double dist = PhotonUtils.calculateDistanceToTargetMeters(Constants.limelightHeight, targetPose.getZ(), cameraPitch, 0);
+             //temporary;
+            double dist = PhotonUtils.calculateDistanceToTargetMeters(Constants.limelightHeight, targetPose.getZ(), Constants.limelightPitch, 0);
             double yaw = Math.abs(m_camera.getYaw());
             double yChange = dist * Math.sin(yaw);
             double xChange = dist * Math.sin(90 - yaw);
